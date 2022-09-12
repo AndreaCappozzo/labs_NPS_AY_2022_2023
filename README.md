@@ -16,7 +16,7 @@ packages will be required as we progress through the course. They can be
 installed via the following commands:
 
 ``` r
-install.packages(c("here", "remotes", "rmarkdown", "knitr", "rgl", "hexbin", "packagefinder", "dplyr", "ggplot2","broom","progress")) # general-purpose packages
+install.packages(c("here", "remotes", "rmarkdown", "knitr", "rgl", "hexbin", "dplyr", "ggplot2","broom","progress")) # general-purpose packages
 install.packages('pbapply')#parallel computing package
 install.packages('ISLR2', 'car') # packages containing useful datasets
 install.packages(c("DepthProc", "aplpack", "robustbase", "roahd")) # depth measures packages
