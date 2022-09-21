@@ -76,15 +76,16 @@ plot(bin, main="Hexagonal Binning")
 ```
 
 Now on depths: there are many possible packages hosted on CRAN to work
-with depths in a multivariate setting. We will hereafter use `DepthProc`, which is a good general purpose
-package and in addition it has good plotting capabilities. Even though
-not all depth measures introduced in class are directly available (e.g.,
-simplicial depth), it includes the two depth measures we will be using
-throughout this section, namely **Tukey** and **Mahalanobis** depths.
-Let us look at the help file for the `depth` function.
+with depths in a multivariate setting. We will hereafter use
+`DepthProc`, which is a good general purpose package and in addition it
+has good plotting capabilities. Even though not all depth measures
+introduced in class are directly available (e.g., simplicial depth), it
+includes the two depth measures we will be using throughout this
+section, namely **Tukey** and **Mahalanobis** depths. Let us look at the
+help file for the `depth` function.
 
 Calculating depth for a given dataset is immediately accomplished by
-typying
+typing
 
 ```{r}
 tukey_depth=depth(u=df_bivariate_exp,method='Tukey')
@@ -185,7 +186,7 @@ df_bivariate_cauchy = cbind(rcauchy(n,location=0,scale=.001), rcauchy(n,location
 head(df_bivariate_cauchy)
 ```
 
-The Cauchy distribution is a distibution that has neither the first
+The Cauchy distribution is a distribution that has neither the first
 moment (the mean) nor the second moment (the variance). This means that
 the CLT does not apply.
 
@@ -202,8 +203,9 @@ a convenient way to nonparametrically explore a (bivariate) dataset.
 Nevertheless, one of the main aims for a statistician to employ depth
 measures is to perform multivariate outlier detection. To appreciate
 this, let us simulate $100$ data points, of which $95\%$ comes from a
-multivariate normal with mean vector `mu_good` and covariance matrix `sigma_common` and the other 5% from another
-multivariate normal, which we assume is our outlier generator process.
+multivariate normal with mean vector `mu_good` and covariance matrix
+`sigma_common` and the other 5% from another multivariate normal, which
+we assume is our outlier generator process.
 
 ```{r}
 mu_good = c(0,0) 
