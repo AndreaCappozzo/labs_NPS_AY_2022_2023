@@ -52,7 +52,7 @@ So, let's start with setting the scene a bit:
 ```{r}
 alpha=0.05
 n <- 10
-B <- 1000
+B <- 10000
 seed=26111992
 sigma=2
 ```
@@ -77,7 +77,7 @@ for(j in 1:B){
   x1 <- rnorm(n,sd=sigma)
   x2 = rnorm(n,sd=sigma)
   p.value[j] <- t.test(x1,y=x2)$p.value
-#pb$tick()
+  #pb$tick()
 }
 ```
 
@@ -134,7 +134,7 @@ What happens with platikurtic datasets?
 
 ```{r}
 x.grid <- seq(-5, 5, by=0.01)
-plot(x.grid, dt(x.grid, 2), type='l')
+plot(x.grid, dt(x.grid, 1), type='l')
 lines(x.grid, dnorm(x.grid,sd=sigma),col='red')
 
 ```
@@ -331,15 +331,15 @@ perm_t_test=function(x,y,iter=1e3){
 
 ```{r}
 p.value <- numeric(B)
-#pb=progress_bar$new(total=B)
-#pb$tick(0)
+pb=progress_bar$new(total=B)
+pb$tick(0)
 set.seed(seed)
 for(j in 1:B)
 {
   x.1 <- rstable(n,1.5,0)
   x.2 = rstable(n,1.5,0)
   p.value[j] <- perm_t_test(x.1,x.2,iter=1000)
-  #pb$tick()
+  pb$tick()
 }
 ```
 
