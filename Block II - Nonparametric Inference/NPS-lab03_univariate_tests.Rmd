@@ -1,6 +1,6 @@
 ---
 title: "Lab 03 - Parametric and Nonparametric Univariate Tests"
-date: 2021/10/8
+date: 2022/10/13
 author: "Nonparametric statistics ay 2021/2022"
 output:
   

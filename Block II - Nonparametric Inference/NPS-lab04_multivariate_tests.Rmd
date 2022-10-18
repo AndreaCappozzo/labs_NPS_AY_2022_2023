@@ -1,6 +1,6 @@
 ---
 title: "Lab 04 - Permutational Multivariate Tests"
-date: 2021/10/13
+date: 2022/10/14
 author: "Nonparametric statistics ay 2021/2022"
 output:
   

@@ -1,6 +1,6 @@
 ---
 title: "Lab 06 - Permutational Testing in Regression"
-date: 2021/10/15
+date: 2022/10/14
 author: "Nonparametric statistics ay 2021/2022"
 output:
   
