@@ -65,7 +65,7 @@ T.obs
 Now, we need to compute the bootstrap distribution of the sample median. To do this I will show you an advanced (and parallel...) technique. Let's set up the cluster
 
 ```{r}
-cl=makeCluster(parallel::detectCores())
+cl=makeCluster(parallel::detectCores()/2)
 clusterExport(cl=cl,list('x1'))
 
 
@@ -74,7 +74,7 @@ clusterExport(cl=cl,list('x1'))
 And now, let's directly compute
 
 ```{r}
-T.boot=pbreplicate(B,median(sample(x1, replace = T)))
+T.boot=pbreplicate(B,median(sample(x1, replace = T)),cl=cl)
 ```
 
 Again, let's observe the distribution
