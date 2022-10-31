@@ -40,8 +40,8 @@ library(car)
 
 Let us familiarize with the dataset we will be using. It is something
 you should remember quite well: the Wage dataset by the amazing An
-Introduction to Statistical Learning book, since August 2021 at
-its second (and free!) edition available
+Introduction to Statistical Learning book, since August 2021 at its
+second (and free!) edition available
 [here](https://www.statlearning.com). It contains wage and other data
 for a group of 3000 male workers in the Mid-Atlantic region. For the
 moment, let us focus on the Wage and age variables only.
@@ -273,6 +273,7 @@ Then it boils down to fit an lm with this new variable
 m_cut=lm(prestige ~ cut(income,breaks = c(min(income),10000,max(income))), data=Prestige)
 broom::tidy(summary(m_cut)) %>% 
   dplyr::mutate(term=ifelse(term=="(Intercept)",term, "income_cut(1e+04,2.59e+04]")) # all this mess to have a nice name on the summary table
+
 ```
 
 ```{r}
