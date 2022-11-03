@@ -42,9 +42,9 @@ state-of-the-art techniques were actually developed here. Depth-based
 techniques find a natural application in Functional Statistics. I assume
 that many of you already know what we mean by functional data (applied
 statistics course docet), nevertheless do not worry if you do not: I
-have structured this lab as a very basic primer to understand how
-to do some methodological and applied work in the framework of
-functional data analysis (FDA).
+have structured this lab as a very basic primer to understand how to do
+some methodological and applied work in the framework of functional data
+analysis (FDA).
 
 According to the FDA model, data can be seen as measurements of a
 quantity/quantities along a given, independent and continuous indexing
@@ -347,8 +347,8 @@ invisible(outliergram(f_data_mag))
 ```
 
 I used `invisible()` in the previous chunk to avoid the output of the
-call to be printed on the console (and in the knitted html file). If I do not use it I obtain the
-following:
+call to be printed on the console (and in the knitted html file). If I
+do not use it I obtain the following:
 
 ```{r}
 fbplot(f_data_shape, main="Shape outliers")
@@ -365,7 +365,9 @@ the ID of the identified outliers:
 out_shape <- outliergram(f_data_shape, display = FALSE)
 out_shape$ID_outliers
 ```
-The outliergram is actually based on some simple manipulations of MEI and MBD, that can be hard coded:
+
+The outliergram is actually based on some simple manipulations of MEI
+and MBD, that can be hard coded:
 
 ```{r, class.source="extracode"}
 MEI_out_shape <- MEI(f_data_shape)
@@ -382,7 +384,6 @@ Let us check that our manual computations are correct:
 all(dplyr::near(d_manual, out_shape$d))
 all(ID_outliers_manual==out_shape$ID_outliers)
 ```
-
 
 One last comment: we have seen in class that the value $F$ used to build
 the fences in the functional boxplot can be adjusted. Despite the
