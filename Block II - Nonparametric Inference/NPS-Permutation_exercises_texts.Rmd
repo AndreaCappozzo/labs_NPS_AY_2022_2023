@@ -41,7 +41,7 @@ behaviour, also have a different median for both age and income. Plot the empiri
 # Exercise 2
 Dr. Bisacciny, Ph.D., is a former postdoctoral researcher in statistics, now turned to beekeeping.
 Despite having left academia, he still likes to use his statistical background to assess his skills as a beekeeper.
-To do so, he wants to compare jointly the number of bees (n.bees) and the amount of honey (honey [g/year]) produced by his 20 beehives (contained in ex01.rda) against the golden standards ($c_0$) available in the literature, that determine a Tukey median value of 10,000 bees and 10,000 g/year of honey per beehive as the optimal performance standard for a beehive similar to the ones used by Dr. Bisacciny. Assuming the tuple (bee, honey) to be i.i.d. , help Dr. Bisacciny in the following:
+To do so, he wants to compare jointly the number of bees (n.bees) and the amount of honey (honey [g/year]) produced by his 20 beehives (contained in ex01.rda) against the golden standards ($c_0$) available in the literature, that determines a Tukey median value of 10,000 bees and 10,000 g/year of honey per beehive as the optimal performance standard for a beehive similar to the ones used by Dr. Bisacciny. Assuming the tuple (bee, honey) to be i.i.d. , help Dr. Bisacciny in the following:
 Using as a test statistic the euclidean distance between the sample Tukey median $\hat C$ and the golden standard $c_0$, perform a permutation test :
    
 $$ H_0: C = c_0 \ \ \textrm{vs} \ \ H_1: C \neq c_0  \ , $$
