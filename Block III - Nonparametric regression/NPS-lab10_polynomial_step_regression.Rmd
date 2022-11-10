@@ -270,7 +270,7 @@ head(with(Prestige, cut(income,breaks = c(min(income),10000,max(income)))))
 Then it boils down to fit an lm with this new variable
 
 ```{r}
-m_cut=lm(prestige ~ cut(income,breaks = c(min(income),10000,max(income))), data=Prestige)
+m_cut=lm(prestige ~ cut(income,breaks = c(-Inf,10000,max(income))), data=Prestige)
 broom::tidy(summary(m_cut)) %>% 
   dplyr::mutate(term=ifelse(term=="(Intercept)",term, "income_cut(1e+04,2.59e+04]")) # all this mess to have a nice name on the summary table
 
