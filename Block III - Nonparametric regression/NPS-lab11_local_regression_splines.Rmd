@@ -206,6 +206,7 @@ m_loess = loess(prestige ~ income,
                 span = .35, degree=0,
               data = Prestige)
 preds_loess=predict(m_loess,newdata=income_newdata,se=T)
+se.bands_loess=cbind(preds_loess$fit +2* preds_loess$se.fit ,preds_loess$fit -2* preds_loess$se.fit)
 with(
   Prestige,
   plot(
@@ -217,7 +218,8 @@ with(
     main = 'Local Polynomial Regression - span= 0.35 - Triweight kernel'
   )
 )
-lines(income_newdata$income,preds_loess$fit ,lwd =1, col =" green")
+lines(income_newdata$income,preds_loess$fit ,lwd =2, col =" green")
+matlines(income_newdata$income,se.bands_loess ,lwd =1, col =" green",lty =3)
 ```
  
 Last note: both `locpoly` and `loess` have a degree argument that allows us to control the degree of local polynomial used in the estimation. In the previous examples we have always relied on local constant fitting setting `degree=0` (also known as the Nadaraya–Watson estimator), but polynomial with higher degrees can be used. If you want to have a very nice interactive visualization on how local regression
