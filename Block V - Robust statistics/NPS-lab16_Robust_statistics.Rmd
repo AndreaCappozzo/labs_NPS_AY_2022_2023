@@ -346,6 +346,8 @@ Least Trimmed Squares (LTS)
 
 ```{r}
 fit_lms <- lmsreg(log.light~log.Te, data=starsCYG)
+
+# This is better than the previous
 fit_lts <- ltsReg(log.light~log.Te, alpha=.75,mcd=TRUE,data=starsCYG) #ltsreg in the MASS package uses an older (slower) implementation of the LTS estimator
 ```
 
