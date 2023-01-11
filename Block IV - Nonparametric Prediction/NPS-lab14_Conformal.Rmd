@@ -1,5 +1,5 @@
 ---
-title: " Scalar, Multivariate and Functional Conformal Prediction "
+title: "Scalar, Multivariate and Functional Conformal Prediction "
 date: 2022/12/1
 author: "Nonparametric statistics ay 2022/2023"
 output:
@@ -132,7 +132,7 @@ abline(v=breaks,col='blue')
 
 ```
 
-# Multivariate Conformal Prediction
+## Multivariate Conformal Prediction
 
 You have seen in class that the theory behind Conformal Prediction works for objects belonging to metric spaces... which opens quite a LOT of possibilities!
 
@@ -326,7 +326,7 @@ library(conformalInference)
 
 
 ```{r}
-load('Block IV - Nonparametric Prediction/nlr_data.rda')
+load(here::here('Block IV - Nonparametric Prediction','nlr_data.rda'))
 attach(Prestige)
 ```
 
@@ -632,11 +632,11 @@ d=ncm_sort[ceiling((n/2 + 1)*(1-alpha))]
 matplot(cbind(mu,mu+(d*S),mu-(d*S)),type='l')
 ```
 
-This can also be implemented in a faster way, by using the ConformalInference.fd package
+This can also be implemented in a faster way, by using the `ConformalInference.fd` package
 
 
 ```{r}
-install.packages("conformalInference.fd")
+#install.packages("conformalInference.fd")
 library(conformalInference.fd)
 
 ```

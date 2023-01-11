@@ -1,5 +1,5 @@
 ---
-title: "Lab 09 - Bootstrap Tests and P-Values"
+title: "Lab 09 - Bootstrap Tests and p-values"
 date: 2022/10/20
 author: "Nonparametric statistics ay 2022/2023"
 output:
@@ -41,7 +41,7 @@ library(pbapply)
 library(parallel)
 ```
 
-##Boostrap tests and Bootstrap P-Values
+## Boostrap tests and Bootstrap P-Values
 You have probably already realised how close (but yet quite different) permutational and bootstrap methods are. We have actually seen how to create confidence intervals out of a permutation test... Here we will create a test (and compute p-values!) out of a bootstrap confidence interval
 
 Let's start by generating some data

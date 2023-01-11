@@ -4,9 +4,9 @@ date: 2022/09/22
 author: "Nonparametric statistics ay 2022/2023"
 output:
   
+  pdf_document: default
   html_document: 
     df_print: paged
-  pdf_document: default
   html_notebook: 
     df_print: paged
   word_document: default
@@ -36,7 +36,7 @@ be present in this document.*
 
 *Disclaimer 2: I will start from the assumption that you are all
 intermediate R users, if this is not the case please let me know, and we
-shall find a solution together*
+shall find a solution together.*
 
 ## Loading necessary libraries
 

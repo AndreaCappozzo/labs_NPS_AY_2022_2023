@@ -52,7 +52,6 @@ Let's simulate some data...
 set.seed(seed)
 data=stabledist::rstable(1000,1.5,0)
 hist(data)
-median(data)
 ```
 
 Let's calculate a confidence interval around the median of this distribution, that is...

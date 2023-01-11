@@ -39,8 +39,8 @@ library(car)
 ## Nonparametric Regression
 
 Let us familiarize with the dataset we will be using. It is something
-you should remember quite well: the Wage dataset by the amazing An
-Introduction to Statistical Learning book, since August 2021 at its
+you should remember quite well: the Wage dataset by the amazing **An
+Introduction to Statistical Learning** book, since August 2021 at its
 second (and free!) edition available
 [here](https://www.statlearning.com). It contains wage and other data
 for a group of 3000 male workers in the Mid-Atlantic region. For the

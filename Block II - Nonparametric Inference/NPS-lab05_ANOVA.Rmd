@@ -45,7 +45,7 @@ seed = 26111992
 Until now, we have seen how to perform basic statistical tests in a nonparametric and, mainly and more importantly, in a permutational framework.
 By going further on this line of thinking, one can perform analysis of variance in a fully permutational (and thus exact...) setting.
 The example we will see today is about a fairly old dataset, appeared on Biometrika in 1948 (!!).
-It is about am experiment over a number of chickens, fed with different feed types, which were weighted by the experimenter.
+It is about an experiment over a number of chickens, fed with different feed types, which were weighted by the experimenter.
 You are interested in determining if the feed type has an impact on the chicken weight or not.
 
 Let's import and summarise the dataset
