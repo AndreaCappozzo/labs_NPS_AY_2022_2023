@@ -122,12 +122,13 @@ following components:
 -   cumhaz: the cumulative hazard curve H(t) = - log(S(t))
 -   std.chaz: the standard error for H(t)
 
-As usual it is edifying to try and hard code the quantities
-returned by a function: in this way you can truly validate whether you
-have understood the considered concepts. The following chunk of R code
-does so for the quantities returned by `survfit`: we will not comment it, but it could be useful for you to go
-through it (also for learning some data-wrangling principles based on
-the [tidyverse](https://www.tidyverse.org)).
+As usual it is edifying to try and hard code the quantities returned by
+a function: in this way you can truly validate whether you have
+understood the considered concepts. The following chunk of R code does
+so for the quantities returned by `survfit`: we will not comment it, but
+it could be useful for you to go through it (also for learning some
+data-wrangling principles based on the
+[tidyverse](https://www.tidyverse.org)).
 
 ```{r, class.source="extracode"}
 df_KM <- lung %>% 
@@ -335,7 +336,9 @@ log_rank_test
 ```
 
 $p=0.03$, the difference in survival between those younger than 70 and
-older than 70 is significant. Again, with a little bit of data wrangling we can manually compute the required quantities for the log-rank test statistics:
+older than 70 is significant. Again, with a little bit of data wrangling
+we can manually compute the required quantities for the log-rank test
+statistics:
 
 ```{r message=FALSE, warning=FALSE, class.source="extracode"}
 fit_KM_by_agecut <- survfit(Surv(time, status) ~ agecat70, data=lung)

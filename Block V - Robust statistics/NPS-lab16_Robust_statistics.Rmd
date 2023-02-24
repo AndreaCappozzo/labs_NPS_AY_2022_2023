@@ -49,7 +49,8 @@ library(RobStatTM)
 Following the definitions outlined during the very first class of the
 module, explicit robust estimators are readily available in R. There is
 not very much to say about it here, let us only try to recreate the
-table presented in slide 18 of the *Introduction and explicit robust estimators* section.
+table presented in slide 18 of the *Introduction and explicit robust
+estimators* section.
 
 ```{r}
 x <-
@@ -115,8 +116,9 @@ p.psiFun(seq(-3,3,length.out=100), "huber", par = 1.5, leg.loc="bottomright", ma
 p.psiFun(seq(-5,5,length.out=100), "biweight", par = 1.5, leg.loc="bottomright",main="T")
 ```
 
-We have already seen how to hard-code the iterative algorithm described in
-slide 13, but with an additional (robust) scale estimate $\hat{\sigma}$.
+We have already seen how to hard-code the iterative algorithm described
+in slide 13, but with an additional (robust) scale estimate
+$\hat{\sigma}$.
 
 ```{r}
 manual_M_location <-
@@ -151,13 +153,18 @@ manual_M_location <-
   }
 ```
 
-The `robustbase` package contains the `huberM` function for performing M-Estimation of location with MAD scale by means of Huber function
+The `robustbase` package contains the `huberM` function for performing
+M-Estimation of location with MAD scale by means of Huber function
+
 ```{r}
 huberM(x = x,k = 1.5)
 manual_M_location(x = x,k = 1.5,type = "Huber")
 ```
 
-In order to employ other $\psi$-functions, as well as other estimator types (S, MM, not covered in class), the `nlrob` is a very flexible function for robust fitting. Honestly, I do not find it straightforward to use, so we move directly to robust multivariate estimators.
+In order to employ other $\psi$-functions, as well as other estimator
+types (S, MM, not covered in class), the `nlrob` is a very flexible
+function for robust fitting. Honestly, I do not find it straightforward
+to use, so we move directly to robust multivariate estimators.
 
 ## Robust multivariate
 
@@ -200,9 +207,9 @@ fit_MCD <- covMcd(x = Animals2, alpha = .75, nsamp = "best")
 fit_MCD
 ```
 
-The `fit_MCD` object contains the raw and reweighted estimates
-of location and scatter, the resulting robust Mahalanobis distances and
-the best subset used for computing the raw estimates.
+The `fit_MCD` object contains the raw and reweighted estimates of
+location and scatter, the resulting robust Mahalanobis distances and the
+best subset used for computing the raw estimates.
 
 ```{r}
 ind_best_subset <- fit_MCD$best

@@ -501,4 +501,3 @@ More concise way using `tapply` and functional programming
 ```{r}
 tapply(log(bee$surv.time), bee$location, mean)
 ```
-

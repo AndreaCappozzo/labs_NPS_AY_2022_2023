@@ -189,8 +189,9 @@ lines(income_newdata$income,preds$fit ,lwd =2, col =" blue")
 matlines(income_newdata$income,se.bands ,lwd =1, col =" blue",lty =3)
 ```
 
-Several R packages provide implementations of local polynomial estimators. For instance, notice that the same results could be achieved by means of the `locpoly`
-function in the `KernSmooth` package:
+Several R packages provide implementations of local polynomial
+estimators. For instance, notice that the same results could be achieved
+by means of the `locpoly` function in the `KernSmooth` package:
 
 ```{r}
 m_kern_smooth <- with(Prestige,KernSmooth::locpoly(x = income, y = prestige, bandwidth = 3200, degree = 0,
@@ -199,7 +200,12 @@ m_kern_smooth <- with(Prestige,KernSmooth::locpoly(x = income, y = prestige, ban
 all(dplyr::near(m_kern_smooth$y,preds$fit,tol = 1e-1)) # somewhat different approx up to .1
 ```
 
-Furthermore, also the built-in `loess` function can be used for local polynomial regression fitting. Contrarily to `locpoly` and `npreg`, `loess` has a different control of the bandwidth by means of the span argument, defining the proportion of points of the sample that are taken into account for performing the local fit. Additionally,  `loess` uses a triweight kernel for weighting the points contributions.
+Furthermore, also the built-in `loess` function can be used for local
+polynomial regression fitting. Contrarily to `locpoly` and `npreg`,
+`loess` has a different control of the bandwidth by means of the span
+argument, defining the proportion of points of the sample that are taken
+into account for performing the local fit. Additionally, `loess` uses a
+triweight kernel for weighting the points contributions.
 
 ```{r message=FALSE, warning=FALSE}
 m_loess = loess(prestige ~ income,
@@ -221,9 +227,14 @@ with(
 lines(income_newdata$income,preds_loess$fit ,lwd =2, col =" green")
 matlines(income_newdata$income,se.bands_loess ,lwd =1, col =" green",lty =3)
 ```
- 
-Last note: both `locpoly` and `loess` have a degree argument that allows us to control the degree of local polynomial used in the estimation. In the previous examples we have always relied on local constant fitting setting `degree=0` (also known as the Nadaraya–Watson estimator), but polynomial with higher degrees can be used. If you want to have a very nice interactive visualization on how local regression
-works you can check the following 
+
+Last note: both `locpoly` and `loess` have a degree argument that allows
+us to control the degree of local polynomial used in the estimation. In
+the previous examples we have always relied on local constant fitting
+setting `degree=0` (also known as the Nadaraya--Watson estimator), but
+polynomial with higher degrees can be used. If you want to have a very
+nice interactive visualization on how local regression works you can
+check the following
 [link](https://bookdown.org/egarpor/PM-UC3M/npreg-kre.html#npreg-kre-locpoly)
 (Figure 6.6).
 
@@ -238,7 +249,9 @@ the results change much with respect to the Gaussian kernel?
 Splines are piecewise polynomial functions which are constrained to join
 smoothly at knots. Nevertheless, before looking at splines let us
 empirically motivate their need by considering piecewise polynomials
-first. Let us keep working with our Prestige dataset. Let us hard-code a piecewise polynomial with discontinuity at the chosen cutoff (hereafter called knot)
+first. Let us keep working with our Prestige dataset. Let us hard-code a
+piecewise polynomial with discontinuity at the chosen cutoff (hereafter
+called knot)
 
 ```{r}
 cutoff <- 10000
@@ -277,7 +290,12 @@ lines(new_data$income,preds$fit ,lwd =2, col =" blue")
 matlines(new_data$income, se.bands ,lwd =1, col =" blue",lty =3)
 ```
 
-This indeed gives us a lot of flexibility, yet you can feel that having discontinuities in the estimated regression line may not be ideal... We can force the regression line to be continuous by dropping the `I(income>cutoff)` term in the `model_cut_disc` model, thus getting back a degree of freedom:
+This indeed gives us a lot of flexibility, yet you can feel that having
+discontinuities in the estimated regression line may not be ideal... We
+can force the regression line to be continuous by dropping the
+`I(income>cutoff)` term in the `model_cut_disc` model, thus getting back
+a degree of freedom:
+
 ```{r}
 model_cut=lm(prestige ~ income + income_cut_model, data=Prestige)
 preds_cut=predict(model_cut,new_data ,se=T)
@@ -287,12 +305,14 @@ lines(new_data$income,preds_cut$fit ,lwd =2, col =" blue")
 matlines(new_data$income, se.bands_cut ,lwd =1, col =" blue",lty =3)
 ```
 
-We have manually fitted our first piece-wise linear spline with one knot at $x=10000$! How to move forward in this direction? That is, allowing for different
-functional forms in different bins whilst maintaining some degree of
-smoothness in the interpolation? We can effectively do so by employing the
-built-in `splines` package. The idea underlying regression splines
-relies on specification of a set of knots, producing sequence of basis
-functions and then using least squares for estimating coefficients.
+We have manually fitted our first piece-wise linear spline with one knot
+at $x=10000$! How to move forward in this direction? That is, allowing
+for different functional forms in different bins whilst maintaining some
+degree of smoothness in the interpolation? We can effectively do so by
+employing the built-in `splines` package. The idea underlying regression
+splines relies on specification of a set of knots, producing sequence of
+basis functions and then using least squares for estimating
+coefficients.
 
 ```{r}
 model_linear_spline <- lm(prestige ~ bs(income, knots=10000,degree=1), data=Prestige)
