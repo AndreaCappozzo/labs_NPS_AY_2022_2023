@@ -41,11 +41,11 @@ seed = 26111992
 ```
 
 
-##Permutational Multivariate Tests
+## Permutational Multivariate Tests
 In this part of the lab, we will directly implement some permutational multivariate tests, applied to specific problems
 Let's start with our first one...
 
-##Two population multivariate test
+## Two population multivariate test
 
 We are given data of the week 12/09/2016 -> 18/09/2016 about the number of veichles that, each half-hour, enter Milan Low emission zone (the so called "areaC"). You want to know if the mean entrance pattern in the weekends is significantly different from the one in the weekdays.
 Framed in a more rigorous way, being $\mathbf{Y}_{i,weekday} \overset{iid}{\sim} \mathbf{Y}_{weekday} \in \mathbb{R}^{48}$ and $\mathbf{Y}_{i,weekend} \overset{iid}{\sim} \mathbf{Y}_{weekend} \in \mathbb{R}^{48}$, we want to test the equality of the two distributions, namely, we want to devise a test of the type:
@@ -138,7 +138,7 @@ With this P-value, I can say, with a level of confidence higher than $95 \%$ tha
 
 let's see another case now...
 
-##Centre of symmetry of one multivariate population 
+## Centre of symmetry of one multivariate population 
 
 We're still in Milan, but now we want to check if the humidity of summer months is significantly different from the "non-comfort" threshold level $(65\%)$.
 In other words, being $\mathbf{Y}_{i,humid} \overset{iid}{\sim} \mathbf{Y}_{hum} \in \mathbb{R}^{4}$, I want to test
@@ -180,7 +180,7 @@ And now, let's compute the permutational distribution!
 
 ```{r}
 T2 = numeric(B) 
-set.seed=seed
+set.seed(seed)
 
 for(perm in 1:B){
   # In this case we use changes of signs in place of permutations
@@ -215,7 +215,7 @@ Also here, I can argue that the humidity during the summer months is, with a 95%
 
 Let's now see our last case...
 
-##Two sample paired multivariate permutation test
+## Two sample paired multivariate permutation test
 
 In this case, we want to compare the temperature, humidity and wind-speed in 50 different days in Milan and Barcelona
 Let's read the data

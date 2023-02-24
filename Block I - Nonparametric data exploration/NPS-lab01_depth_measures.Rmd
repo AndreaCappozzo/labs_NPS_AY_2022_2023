@@ -4,9 +4,9 @@ date: 2022/09/22
 author: "Nonparametric statistics ay 2022/2023"
 output:
   
+  pdf_document: default
   html_document: 
     df_print: paged
-  pdf_document: default
   html_notebook: 
     df_print: paged
   word_document: default
@@ -36,7 +36,7 @@ be present in this document.*
 
 *Disclaimer 2: I will start from the assumption that you are all
 intermediate R users, if this is not the case please let me know, and we
-shall find a solution together*
+shall find a solution together.*
 
 ## Loading necessary libraries
 
@@ -252,7 +252,7 @@ multivariate outliers is the bagplot. The `bagplot` function from the
 `aplpack` package can be used to display bagplots for bivariate data
 
 ```{r}
-bagplot(df_contaminated_normals)
+bagplot(df_contaminated_normals, factor = 3)
 ```
 
 If we check the help page for the `bagplot` function, we see that we
@@ -413,6 +413,8 @@ df_good <- df_3[1:n_good,]
 df_out <- df_3[(n_good+1):n,]
 ddPlot(x = df_good,y = df_out,depth_params = list(method='Tukey'))
 ```
+
+They would line up if they came from the same distribution
 
 It is easy to manually build a DD-plot
 

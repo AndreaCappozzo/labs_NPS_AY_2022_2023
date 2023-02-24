@@ -438,7 +438,7 @@ what you discovered in 1.?
 3. The coach is also asking you an idea of the "consistency" of athlete 3 out of the gate: provide him
 with a confidence interval for the mean of his reaction time (use a permutational approach).
 
-##Solution
+## Solution
 
 
 Load the data and have a look at it
