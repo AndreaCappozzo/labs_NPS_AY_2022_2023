@@ -44,8 +44,10 @@ library(pbapply)
 
 In the past two labs we have seen several methods that allow us to fit a
 smooth regression function
-$$y_i=f(x_i)+\varepsilon_i, \quad i=1,\ldots,N$$ with
-$x_i\in \mathbb{R}$. In today's lab, we would like to move forward
+$$
+y_i=f(x_i)+\varepsilon_i, \quad i=1,\ldots,N
+$$
+with $x_i\in \mathbb{R}$. In today's lab, we would like to move forward
 looking at a way to perform multivariate nonparametric regression, that
 is when $x_i\in \mathbb{R}^p$, $p>1$. We will do so by means of an
 additive approach through the Generalized Additive Models. Let us go

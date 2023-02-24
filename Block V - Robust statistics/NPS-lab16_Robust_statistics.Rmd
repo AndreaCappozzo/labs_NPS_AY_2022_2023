@@ -332,6 +332,7 @@ We have already seen that the OLS estimator goes bananas
 plot(starsCYG)
 fit_lm <- lm(log.light~log.Te, data=starsCYG)
 abline(fit_lm, col="red", lwd=2)
+text(starsCYG$log.Te, starsCYG$log.light, 1:nrow(starsCYG), pos=1)
 ```
 
 Yet, if we were to look at standard diagnostic plots we would not grasp
@@ -346,6 +347,8 @@ Least Trimmed Squares (LTS)
 
 ```{r}
 fit_lms <- lmsreg(log.light~log.Te, data=starsCYG)
+
+# This is better than the previous
 fit_lts <- ltsReg(log.light~log.Te, alpha=.75,mcd=TRUE,data=starsCYG) #ltsreg in the MASS package uses an older (slower) implementation of the LTS estimator
 ```
 

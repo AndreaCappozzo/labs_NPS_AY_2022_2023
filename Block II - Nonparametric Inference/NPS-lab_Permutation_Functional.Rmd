@@ -28,7 +28,8 @@ background-color: lightblue;
 }
 ```
 
-# Nonparametric Statistics and Functional Data
+## Nonparametric Statistics and Functional Data
+
 The Objective of this brief lab is to show you some applications of the advanced techniques you have seen during the course, applied to functional data. Namely we will see permutation testing (both global and local...), and prediction
 
 Let's load the packages we need and our data:
@@ -46,7 +47,8 @@ matplot(data$age,data$hgtm, type='l',col='blue')
 matlines(data$age,data$hgtf, type='l',col='red')
 ```
 
-##Permutation Global Testing
+## Permutation Global Testing
+
 What if I want to test if the two curves are equal or not? Nothing simpler.. I just need to remember how permutation tests work...
 
 ```{r}
@@ -70,8 +72,8 @@ And, Knowing that under $H_0$ the two groups of curves are IID, my likelihood-in
 T0_perm=numeric(B)
 
 for(perm in 1:B){
-  permutazione <- sample(n)
-  berkeley_perm=berkeley[permutazione,]
+  permutation <- sample(n)
+  berkeley_perm=berkeley[permutation,]
   perm_m = berkeley_perm[1:n_m,] 
   perm_f = berkeley_perm[(n_m+1):n,] 
   T0_perm[perm]=sum(((colMeans(perm_m)-colMeans(perm_f)))^2)
@@ -96,8 +98,8 @@ T0
 T0_perm=numeric(B)
 
 for(perm in 1:B){
-  permutazione <- sample(n_m)
-  berkeley_perm=ber_m[permutazione,]
+  permutation <- sample(n_m)
+  berkeley_perm=ber_m[permutation,]
   perm_m = berkeley_perm[1:(n_m/2),] 
   perm_f = berkeley_perm[(n_m/2):n_m,] 
   T0_perm[perm]=sum(((colMeans(perm_m)-colMeans(perm_f)))^2)
@@ -131,8 +133,8 @@ And now, the test
 berkeley_fd=append_fData(hgtm_fd,hgtf_fd)
 
 for(perm in 1:B){
-  permutazione <- sample(n)
-  berkeley_perm=berkeley_fd[permutazione,]
+  permutation <- sample(n)
+  berkeley_perm=berkeley_fd[permutation,]
   perm_m = berkeley_perm[1:n_m,] 
   perm_f = berkeley_perm[(n_m+1):n,] 
   meandiff=median_fData(perm_m,type='MBD')-median_fData(perm_f,type='MBD')
