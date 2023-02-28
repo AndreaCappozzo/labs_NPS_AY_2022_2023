@@ -126,27 +126,27 @@ Let's see what happens instead when using `lmPerm`
 
 ```{r}
 library(lmPerm)
-lmp=aovp(weight_perm ~ feed,perm="Prob",Cp=0.1)#cp is supposed to stop iterations when standard error is at that level...
+lmp=aovp(weight_perm ~ chickwts$feed,perm="Prob",Cp=0.1)#cp is supposed to stop iterations when standard error is at that level...
 summary(lmp)
 ```
 
 let's reduce the expected standard error...
 
 ```{r}
-lmp=aovp(weight_perm ~ feed,perm="Prob",Cp=1e-6)
+lmp=aovp(weight_perm ~ chickwts$feed,perm="Prob",Cp=1e-6)
 summary(lmp)
 ```
 
 and let's run the instruction several times
 
 ```{r}
-lmp=aovp(weight_perm ~ feed,perm="Prob",Cp=1e-6)
+lmp=aovp(weight_perm ~ chickwts$feed,perm="Prob",Cp=1e-6)
 summary(lmp)
 
-lmp=aovp(weight_perm ~ feed,perm="Prob",Cp=1e-6)
+lmp=aovp(weight_perm ~ chickwts$feed,perm="Prob",Cp=1e-6)
 summary(lmp)
 
-lmp=aovp(weight_perm ~ feed,perm="Prob",Cp=1e-6)
+lmp=aovp(weight_perm ~ chickwts$feed,perm="Prob",Cp=1e-6)
 summary(lmp)
 
 ```
